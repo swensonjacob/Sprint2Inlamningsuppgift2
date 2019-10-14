@@ -1,25 +1,26 @@
 package se.jacobswenson;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
- class Visit {
+class Visit {
     private Customer customer;
     private LocalDate date;
-    private String time;
+    private LocalTime time;
 
      Visit(Customer customer) {
         this.customer = customer;
         this.date = LocalDate.now();
-        this.time = LocalDateTime.now().toString().substring(11, 16);
+         this.time = LocalTime.now();
     }
 
      Customer getCustomer() {
         return customer;
     }
 
-     String getTime() {
-        return time;
+    String getTimeToString() {
+        return this.time.format(DateTimeFormatter.ofPattern("HH:mm"));
     }
 }
 

@@ -25,4 +25,5 @@ class GymTest {
     void customerExists_personalNumber() {
         assertNotNull(gym.customerExists(customer.getPersonalNumber()));
     }
+
 }
