@@ -69,19 +69,17 @@ class Gym {
      * -try with resources
      */
     private void writeLogToFile() {
-        String fileName = logFileName;
         try {
-        String logFile = visitLog.getLogFromFile(fileName) + "\n" + visitLog.getTodaysLog();
-        try (PrintWriter writer = new PrintWriter
-                (new BufferedWriter
-                        (new FileWriter(fileName)))) {
-
-            writer.println(logFile);
-        } catch(IOException e) {
-            Output.errorWriteFile(fileName);
-        }
+            String logFile = visitLog.getLogFromFile(logFileName) + "\n" + visitLog.getTodaysLog();
+            try (PrintWriter writer = new PrintWriter
+                    (new BufferedWriter
+                            (new FileWriter(logFileName)))) {
+                writer.println(logFile);
+            } catch (IOException e) {
+                Output.errorWriteFile(logFileName);
+            }
         } catch (IOException e) {
             Output.errorReadFile(e.getMessage());
         }
-}
+    }
 }

@@ -9,13 +9,13 @@ class Visit {
     private LocalDate date;
     private LocalTime time;
 
-     Visit(Customer customer) {
+    Visit(Customer customer) {
         this.customer = customer;
         this.date = LocalDate.now();
-         this.time = LocalTime.now();
+        this.time = LocalTime.now();
     }
 
-     Customer getCustomer() {
+    Customer getCustomer() {
         return customer;
     }
 

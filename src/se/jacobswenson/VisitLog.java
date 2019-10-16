@@ -17,10 +17,6 @@ class VisitLog {
         visits = new ArrayList<>();
     }
 
-    public List<Visit> getVisits() {
-        return visits;
-    }
-
     /**
      * Lägger till Visit för ingeånde Customer i listan visits
      */
@@ -29,7 +25,7 @@ class VisitLog {
     }
 
     /**
-     Skapar en logg för utskrift från listan visits genom StringBuilder
+     * Skapar en logg för utskrift från listan visits genom StringBuilder
      */
     String getTodaysLog() {
         StringBuilder visitLog = new StringBuilder(this.date.toString() +

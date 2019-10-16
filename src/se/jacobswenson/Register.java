@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Register {
+class Register {
 
     private List<Customer> customers;
 
@@ -14,7 +14,7 @@ public class Register {
      * inläsning av fil från ingående filnamn där ny Customer skapas och läggs till i listan customers
      * -try with resources
      */
-    public Register(String fileName) throws IOException {
+    Register(String fileName) throws IOException {
         this.customers = new ArrayList<>();
         try (Scanner scanner = new Scanner(new File(fileName))) {
             while (scanner.hasNext()) {
@@ -26,7 +26,7 @@ public class Register {
         }
     }
 
-    public List<Customer> getCustomers() {
+    List<Customer> getCustomers() {
         return customers;
     }
 }
