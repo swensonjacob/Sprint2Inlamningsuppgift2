@@ -4,15 +4,28 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CustomerTest {
 
-    private Customer customer;
+    private Customer customerOne;
+    private Customer customerTwo;
 
     @BeforeEach
     void setUp() {
-        customer = new Customer("Jacob Swenson", "8902060000","2018-12-01");
+        customerOne = new Customer("Jacob Swenson", "8902060000", "2018-12-01");
+        customerTwo = new Customer("Lasse Kronér", "6312191234", "2001-12-01");
     }
 
+    /**
+     * test av medelmskap giltigt, skall vara true
+     */
     @Test
-    void membershipIsValid() {
-        assertTrue(customer.membershipIsValid(customer));
+    void membershipIsValid_true() {
+        assertTrue(customerOne.membershipIsValid(customerOne));
+    }
+
+    /**
+     * test av medelmskap giltigt, skall vara false
+     */
+    @Test
+    void membershipIsValid_false() {
+        assertFalse(customerTwo.membershipIsValid(customerTwo));
     }
 }

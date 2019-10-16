@@ -26,11 +26,14 @@ import java.time.LocalDate;
         return payDate;
     }
 
-    boolean membershipIsValid (Customer customer) {
-        LocalDate localDate = LocalDate.now();
-        LocalDate payDate = LocalDate.parse(customer.getPayDate());
-        LocalDate oneYearAgo = LocalDate.now().minusYears(1);
+     /**
+      * Returnerar boolean om medlemskapet är betalat inom ett år eller inte.
+      */
+     boolean membershipIsValid (Customer customer) {
+         LocalDate localDate = LocalDate.now();
+         LocalDate payDate = LocalDate.parse(customer.getPayDate());
+         LocalDate oneYearAgo = LocalDate.now().minusYears(1);
 
-        return payDate.isAfter(oneYearAgo) && payDate.isBefore(localDate);
-    }
+         return payDate.isAfter(oneYearAgo) && payDate.isBefore(localDate);
+     }
 }

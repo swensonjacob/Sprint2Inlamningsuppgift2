@@ -17,10 +17,20 @@ class VisitLog {
         visits = new ArrayList<>();
     }
 
-    boolean addToLog(Customer customer) {
-        return visits.add(new Visit(customer));
+    public List<Visit> getVisits() {
+        return visits;
     }
 
+    /**
+     * Lägger till Visit för ingeånde Customer i listan visits
+     */
+    void addToLog(Customer customer) {
+        visits.add(new Visit(customer));
+    }
+
+    /**
+     Skapar en logg för utskrift från listan visits genom StringBuilder
+     */
     String getTodaysLog() {
         StringBuilder visitLog = new StringBuilder(this.date.toString() +
                 "\n-------------------------------------");
@@ -30,14 +40,15 @@ class VisitLog {
         return visitLog.toString();
     }
 
-    String getLogFromFile(String fileName) {
+    /**
+     * Hämtar och skapar logfilen från fil genom StringBuilder och returnerar loggen.
+     */
+    String getLogFromFile(String fileName) throws IOException {
         StringBuilder visitLog = new StringBuilder();
         try (Scanner scanner = new Scanner(new File(fileName))) {
             while (scanner.hasNext()) {
                 visitLog.append(scanner.nextLine()).append("\n");
             }
-        } catch (IOException e) {
-            Output.errorReadFile(fileName);
         }
         return visitLog.toString();
     }

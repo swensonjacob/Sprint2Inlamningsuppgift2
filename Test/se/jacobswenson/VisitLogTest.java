@@ -3,22 +3,34 @@ package se.jacobswenson;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class VisitLogTest {
 
-   private Customer customer;
-   private VisitLog visitLog;
+    private VisitLog visitLog;
 
 
     @BeforeEach
     void setUp() {
-        customer = new Customer("Jacob Swenson", "8902060000","2018-12-01");
         visitLog = new VisitLog();
     }
 
+    /**
+     * test av att exception throws med felaktigt filnamn.
+     */
     @Test
-    void addToLog() {
-        assertTrue(visitLog.addToLog(customer));
+    void getLogFromFile_exception() {
+        Exception exception = assertThrows(IOException.class, () -> visitLog.getLogFromFile("Wrong.txt"));
+        assertEquals("Wrong.txt (No such file or directory)", exception.getMessage());
+    }
+
+    /**
+     * test av att den returnerande Stringen inte är null
+     */
+    @Test
+    void getLogFromFile_notNull() throws IOException {
+        assertNotNull(visitLog.getLogFromFile("VisitLog.txt"));
     }
 }
