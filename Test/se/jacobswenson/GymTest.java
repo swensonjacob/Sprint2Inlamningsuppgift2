@@ -3,6 +3,8 @@ package se.jacobswenson;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDate;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class GymTest {
@@ -13,8 +15,8 @@ class GymTest {
 
     @BeforeEach
     void setUp() {
-        customerOne = new Customer("Alhambra Aromes", "7603021234", "2018-07-01");
-        customerTwo = new Customer("Jacob Swenson", "8902060000", "2007-05-11");
+        customerOne = new Customer("Alhambra Aromes", "7603021234", LocalDate.now().minusMonths(3).toString());
+        customerTwo = new Customer("Jacob Swenson", "8902060000", LocalDate.now().minusYears(2).toString());
         gym = new Gym();
     }
 
