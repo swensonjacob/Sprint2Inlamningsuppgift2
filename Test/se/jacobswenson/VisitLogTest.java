@@ -25,7 +25,6 @@ class VisitLogTest {
         Exception exception = assertThrows(IOException.class, () -> visitLog.getLogFromFile("Wrong.txt"));
         assertEquals("Wrong.txt (No such file or directory)", exception.getMessage());
     }
-
     /**
      * test av att den returnerande Stringen inte är null
      */

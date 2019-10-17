@@ -21,7 +21,7 @@ class GymTest {
     }
 
     /**
-     * test av medlemskap giltigt, skall vara true
+     test av CustomerOne namn återfinns som kund, skall finnas
      */
     @Test
     void customerExists_name_notNull() {
@@ -30,7 +30,7 @@ class GymTest {
     }
 
     /**
-     * test av medlemskap giltigt, skall vara false
+     test av CustomerOne namn återfinns som kund, skall inte hittas
      */
     @Test
     void customerExists_name_null() {
@@ -38,7 +38,7 @@ class GymTest {
     }
 
     /**
-     test av CustomerOne återfinns som kund, skall finnas
+     test av CustomerOne personnummer återfinns som kund, skall finnas
      */
     @Test
     void customerExists_personalNumber_notNull() {
@@ -47,7 +47,7 @@ class GymTest {
     }
 
     /**
-     * test av CustomerOne återfinns som kund, skall inte hittas
+     * test av CustomerTwo personnummer återfinns som kund, skall inte hittas
      */
     @Test
     void customerExists_personalNumber_null() {
